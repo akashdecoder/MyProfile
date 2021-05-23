@@ -43,7 +43,7 @@ public class PageController {
         mailMessage.setText(message);
 
         mailSender.send(mailMessage);
-        return "message";
+        return "message.html";
 
     }
 }
