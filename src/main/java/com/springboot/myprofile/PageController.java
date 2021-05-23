@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RestController
+@Controller
 public class PageController {
 
     @Autowired
     private JavaMailSender mailSender;
 
-    @GetMapping("/akash")
+    @GetMapping("/")
     public String showHomePage() {
-        return "profilepage.html";
+        return "profilepage";
     }
 
-    @PostMapping("/akash/sentMail")
+    @PostMapping("/sentMail")
     public String sendMail(HttpServletRequest request) {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
@@ -40,7 +40,7 @@ public class PageController {
 
         mailSender.send(mailMessage);
 
-        return "message.html";
+        return "message";
 
     }
 }
