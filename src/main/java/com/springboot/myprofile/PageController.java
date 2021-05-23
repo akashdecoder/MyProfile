@@ -1,12 +1,12 @@
 package com.springboot.myprofile;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,13 +16,17 @@ public class PageController {
     @Autowired
     private JavaMailSender mailSender;
 
+    Logger logger = LoggerFactory.getLogger(PageController.class);
+
     @GetMapping("/")
     public String showHomePage() {
         return "profilepage";
     }
 
-    @PostMapping("/sentMail")
+    @RequestMapping(value = "/sentMail", method = RequestMethod.POST)
     public String sendMail(HttpServletRequest request) {
+        logger.info(request.getParameter("username"));
+        System.out.println(request.getParameter("username"));
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String phone = request.getParameter("contact").toString();
@@ -39,7 +43,6 @@ public class PageController {
         mailMessage.setText(message);
 
         mailSender.send(mailMessage);
-
         return "message";
 
     }
