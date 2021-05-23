@@ -22,6 +22,11 @@ public class PageController {
     public String showHomePage() {
         return "profilepage";
     }
+    
+    @GetMapping("/message")
+    public String showMailPage() {
+        return "message";
+    }
 
     @RequestMapping(value = "/sentMail", method = RequestMethod.POST)
     public String sendMail(HttpServletRequest request) {
