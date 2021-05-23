@@ -21,7 +21,7 @@ public class PageController {
         return "profilepage";
     }
 
-    @PostMapping("/sentMail")
+    @PostMapping("/")
     public String sendMail(HttpServletRequest request) {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
