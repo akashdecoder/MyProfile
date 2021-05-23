@@ -23,7 +23,7 @@ public class PageController {
         return "profilepage";
     }
 
-    @RequestMapping(value = "/sentMail", method = RequestMethod.POST)
+    @RequestMapping(value = "sentMail", method = RequestMethod.POST)
     public String sendMail(HttpServletRequest request) {
         logger.info(request.getParameter("username"));
         System.out.println(request.getParameter("username"));
