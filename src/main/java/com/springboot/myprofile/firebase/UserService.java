@@ -18,7 +18,7 @@ public class UserService {
     public String saveUser(User user) throws InterruptedException, ExecutionException {
         Firestore firestore = FirestoreClient.getFirestore();
         ApiFuture<WriteResult> apiFuture = firestore.collection(COL_NAME1)
-                .document(user.getUsername()).set(user);
+                .document(user.getSubject()).set(user);
         return apiFuture.get().getUpdateTime().toString();
     }
 
