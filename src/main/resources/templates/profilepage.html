@@ -389,48 +389,57 @@
             <div class="section-title text-center">
                 <h3><b>Contact Me</b></h3>
             </div>
-<!--            <form class="form-group text-center" name="sentMail" id="sentMail" th:action="@{/sentMail}" method="post">-->
-<!--                <div class="row g-3">-->
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="form-floating">-->
-<!--                            <input placeholder="First Name" id="username" name="username" class="form-control" required>-->
-<!--                            <label for="username">First Name</label>-->
-<!--                        </div>-->
-<!--                        <br>-->
-<!--                        <div class="form-floating">-->
-<!--                            <input placeholder="Contact" type="tel" name="contact" id="contact" class="form-control"-->
-<!--                                   required>-->
-<!--                            <label for="contact">Contact</label>-->
-<!--                        </div>-->
-<!--                        <br>-->
-<!--                        <div class="form-floating">-->
-<!--                            <input placeholder="Email" type="email" name="email" id="email" class="form-control"-->
-<!--                                   required>-->
-<!--                            <label for="email">Email</label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-md-4">-->
-<!--                        <div class="form-floating">-->
-<!--                            <input placeholder="Subject" name="subject" type="text" id="subject" class="form-control"-->
-<!--                                   required>-->
-<!--                            <label for="subject">Subject</label>-->
-<!--                        </div>-->
-<!--                        <br>-->
-<!--                        <div class="form-floating">-->
-<!--                            <textarea style="resize: none; height: 141px;" rows="4" cols="50" name="message"-->
-<!--                                      placeholder="Email"-->
-<!--                                      id="message" class="form-control"></textarea>-->
-<!--                            <label for="message">Message</label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    -->
-<!--                </div>-->
-<!--                <br>-->
-<!--                <button type="submit" class="sim-btn hvr-bounce-to-top">Send Message</button>-->
-<!--                <br>-->
-<!--            </form>-->
-            <div class="row g-3">
-                <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-8">
+                    <form class="form-group text-center" name="sentMail" id="sentMail" th:action="@{/sentMail}"
+                          method="post">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input placeholder="First Name" id="username" type="text" name="username"
+                                           class="form-control" required>
+                                    <label for="username">First Name</label>
+                                </div>
+                                <br>
+                                <div class="form-floating">
+                                    <input placeholder="Contact" type="text" name="contact"
+                                           id="contact"
+                                           class="form-control"
+                                           required>
+                                    <label for="contact">Contact</label>
+                                </div>
+                                <br>
+                                <div class="form-floating">
+                                    <input placeholder="Email" type="email" name="email" id="email"
+                                           class="form-control"
+                                           required>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input placeholder="Subject" name="subject" type="text"
+                                           id="subject"
+                                           class="form-control"
+                                           required>
+                                    <label for="subject">Subject</label>
+                                </div>
+                                <br>
+                                <div class="form-floating">
+                            <textarea style="resize: none; height: 141px;" rows="4" cols="50" name="message"
+                                      placeholder="Email"
+                                      id="message" class="form-control"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <input type="submit" class="sim-btn hvr-bounce-to-top" value="Send Message"></input>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-md-1">
                     <div style="text-align: center">
                         <a href="mailto:akash.ranjan1999@gmail.com">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="red"
@@ -440,7 +449,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1">
                     <div style="text-align: center;">
                         <a href="https://linkedin.com/in/akashranjan-das-8a5370169/">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="blue" class="bi bi-linkedin" viewBox="0 0 16 16">
@@ -449,7 +458,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1">
                     <div style="text-align: center;">
                         <a href="https://github.com/akashdecoder">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="black" class="bi bi-github" viewBox="0 0 16 16">
@@ -458,7 +467,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1">
                     <div style="text-align: center;">
                         <a href="https://wa.me/7667503352">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="green"
@@ -469,6 +478,10 @@
                     </div>
                 </div>
             </div>
+
+<!--            <div class="row g-3">-->
+
+<!--            </div>-->
         </div>
     </div>
 
