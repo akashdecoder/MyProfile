@@ -2,7 +2,9 @@ package com.springboot.myprofile;
 
 import com.springboot.myprofile.firebase.UserService;
 import com.springboot.myprofile.model.Uploads;
+import com.springboot.myprofile.model.Video;
 import com.springboot.myprofile.repository.UploadsRepository;
+import com.springboot.myprofile.repository.VideoRepository;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -36,6 +38,9 @@ public class PageController {
     @Autowired
     private UploadsRepository uploadsRepository;
 
+    @Autowired
+    private VideoRepository videoRepository;
+
     Logger logger = LoggerFactory.getLogger(PageController.class);
 
     @GetMapping("/")
@@ -61,6 +66,11 @@ public class PageController {
         List<Uploads> linkslists = new ArrayList<>();
         linkslists = uploadsRepository.findAll();
         model.addAttribute("linkslists", linkslists);
+
+        List<Video> videos = new ArrayList<>();
+        videos = videoRepository.findAll();
+        model.addAttribute("videos", videos);
+
         return "profilepage";
     }
     
@@ -72,8 +82,10 @@ public class PageController {
     @GetMapping("/uploads")
     public String showUploadPage(Model model) {
         model.addAttribute("uploads", new Uploads());
+        model.addAttribute("videos", new Video());
         return "upload_links";
     }
+
 
 
     @PostMapping("/sentMail")
@@ -96,14 +108,26 @@ public class PageController {
     }
 
     @PostMapping("/uploaded")
-    public String registerFaculty(@Valid Uploads uploads, BindingResult result, Model model,
+    public String linkUploaded(@Valid Uploads uploads, BindingResult result, Model model,
                                   HttpServletRequest request, RedirectAttributes redirectAttributes) throws IOException {
         if(result.hasErrors()) {
-            redirectAttributes.addFlashAttribute("warning", "Error Occured in Uploading");
+            redirectAttributes.addFlashAttribute("warning", "Error Occurred in Uploading");
             return"redirect:/uploads";
         }
         uploadsRepository.save(uploads);
         redirectAttributes.addFlashAttribute("message", "Article Url Uploaded");
+        return "redirect:/uploads";
+    }
+
+    @PostMapping("/uploadedvideos")
+    public String videoUploaded(@Valid Video video, BindingResult result, Model model,
+                                  HttpServletRequest request, RedirectAttributes redirectAttributes) throws IOException {
+        if(result.hasErrors()) {
+            redirectAttributes.addFlashAttribute("warning1", "Error Occurred in Uploading");
+            return"redirect:/uploads";
+        }
+        videoRepository.save(video);
+        redirectAttributes.addFlashAttribute("message1", "Video Url Uploaded");
         return "redirect:/uploads";
     }
 }

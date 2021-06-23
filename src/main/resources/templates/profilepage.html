@@ -34,6 +34,9 @@
                         <a class="nav-link active" aria-current="page" href="#tech">Technical Corner</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#videos">Online Videos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#contactme">Contact Me</a>
                     </li>
                 </ul>
@@ -60,6 +63,8 @@
             <div class="section-title text-center">
                 <h3><b>About Me</b></h3>
             </div>
+
+
             <div class="message-box">
                 <p style="font-size: 15px; color: black;"><b>I am Akash Ranjan Das, a third year Undergraduate student
                     of Computer Science and Engineering at Siddaganga Institute of Technology, Tumkur, Karnataka. Life here is really exciting-working on new things, exploring new topics, and hearing new ideas every day.</b></p>
@@ -186,7 +191,9 @@
                               </div>
                           </p>
                           <p>It is the official website of the technical group Dynamics (Project Oriented Community).
-                              This website supports registration for recruitments and other events to be held.</p>
+                              This website supports registration for recruitments and other events to be held. It is
+                          deployed to Heroku with Firebase backend.</p>
+                          <p><b>Visit the Website: </b><a href="https://dynamicspoc.herokuapp.com/"><b>dynamicspoc.herokuapp.com</b></a></p>
                           <p><a href="https://github.com/akashdecoder/DynamicsWebsiteOfficial"><b>View Project</b></a></p>
                       </div>
                     </div>
@@ -194,7 +201,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingFive">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                        <b>College Academics Management System (CAMS)</b>
+                        <b>Sigma Newsletter Department of CSE official Website</b>
                       </button>
                     </h2>
                     <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
@@ -202,18 +209,53 @@
                             <p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <b style="text-align: start;">Spring Boot, MySQL, Thymeleaf, BootStrap</b>
+                                        <b style="text-align: start;">Spring Boot, Heroku PostgreSQL, Thymeleaf, Html
+                                            and BootStrap</b>
                                     </div>
                                     <div class="col-md-6" style="text-align: end;">
-                                        <b>May 2021 - Present</b>
+                                        <b>June 2021</b>
                                     </div>
                                 </div>
                             </p>
-                            <p>College Academics Management System (CAMS) is a desktop software as a motivation of my
-                                     college merit system. As the merit system of my college can be used only in
-                                browser, my software can be used in desktop with a user interface and remote MySQL
-                                server. Virtual classroom like google classroom concept and chat options are implemented.</p>
-                            <p><a href=""><b>View Project</b></a></p>
+                            <p>It is the Sigma’s official Website to allow the working of the technical group
+                                online. The website has member privileges who can do CRUD operations. A query console
+                                is added to receive any queries from the others who are not in SIGMA. A separate
+                                page is made for all the fellow engineers to upload their articles so that they can
+                                contribute to Sigma.</p>
+                            <p><b>Visit the Website: </b><a href="https://sigmacse.herokuapp.com/"><b>sigmacse.herokuapp.com</b></a></p>
+                            <p><a href="https://github.com/akashdecoder/SigmaWebsite"><b>View Project</b></a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                aria-controls="flush-collapseSix">
+                            <b>Session Initiation Protocol Analysis and Visualization</b>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body" style="color: rgb(94, 92, 92)">
+                            <p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <b style="text-align: start;">Python, Wireshark and
+                                    Cisco Packet Tracer</b>
+                                </div>
+                                <div class="col-md-6" style="text-align: end;">
+                                    <b>June 2021</b>
+                                </div>
+                            </div>
+                            </p>
+                            <p>This project was given by Cisco as a activity project to the selected students in
+                                SIT, Tumkur. The VoIP connection was configured in Packet Tracer and pcap files
+                                containing SIP packets were downloaded from the internet to visualize in wireshark.
+                                Python was used to read the csv file containing the different packets and visualize
+                                the SIP packet's characteristics using seaborn and matplotlib library.</p>
+                            <p><a href="https://github.com/akashdecoder/CISCO_PROJECT_SIP_PROTOCOL"><b>View Project</b></a></p>
                         </div>
                     </div>
                 </div>
@@ -379,6 +421,31 @@
         <br>
         <br>
     </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="section wb" id="videos">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3><b>Online Videos</b></h3>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4" th:each="video: ${videos}">
+                    <div class="card h-100"
+                         th:classappend="${video.video_id}%2 == 0 ? 'border-info' : 'border-warning'">
+                        <iframe th:src="@{${video.url}}" title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="card-body">
+                            <h3 class="card-title" style="text-align: center; font: bold;"
+                                th:text="${video.title}"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <br>

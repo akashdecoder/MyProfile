@@ -12,13 +12,13 @@
   <link  href="/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container border-success">
   <br>
   <br>
   <br>
   <br>
   <div class="section-title text-center">
-    <h3><b>Upload Section</b></h3>
+    <h3><b>Upload Technical Articles Links</b></h3>
     <hr>
   </div>
   <br>
@@ -56,6 +56,47 @@
       <div class="col-md-12">
         <br>
         <button type="submit" class="btn btn-success hvr-bounce-to-top btn-lg"><b>Upload Link to View</b></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container border-info">
+  <br>
+  <br>
+  <br>
+  <div class="section-title text-center">
+    <h3><b>Upload Youtube Video Links</b></h3>
+    <hr>
+  </div>
+  <br>
+
+  <form class="form-group text-center" method="post"
+        th:action="@{/uploadedvideos}"
+        th:object="${videos}">
+    <div th:if="${warning1 != null}" class="alert alert-danger text-center">[[${warning1}]]</div>
+    <div th:if="${message1 != null}" class="alert alert-success text-center">[[${message1}]]</div>
+    <div class="row g-3">
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input placeholder="Title" id="title1" class="form-control" th:field="*{title}"
+                 required>
+          <label for="title1">Title</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating">
+          <input placeholder="Embedded Video Url" id="url1" class="form-control" th:field="*{url}"
+                 required>
+          <label for="url1">Embedded Video Url</label>
+        </div>
+      </div>
+      <div class="col-md-12 text-center" th:if="${#fields.hasErrors('global')}">
+        <b><p style="color: red" th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" /></b>
+      </div>
+      <div class="col-md-12">
+        <br>
+        <button type="submit" class="btn btn-info hvr-bounce-to-top btn-lg"><b>Upload Link to View</b></button>
         <br>
         <br>
         <br>
