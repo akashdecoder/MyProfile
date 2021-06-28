@@ -10,7 +10,23 @@
     <link href="/style.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
+
+    <style>
+        section {
+            background-color: #FD7153;
+            animation-name: back;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes back {
+            from {background-color: #FD7153}
+            to {background-color: #39CEB8}
+        }
+    </style>
+
     <script type="text/javascript" src="/js/modernizr.js"></script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -44,7 +60,7 @@
         </div>
     </nav>
 
-    <section id="home" class="main-banner parallaxie" style="background: url('mainimages/back.png')">
+    <section id="home" class="main-banner parallaxie" style="background-color: #FD7153">
         <div class="heading">
             <img src="mainimages/pics.png" alt="" class="figure-img img-fluid rounded">
             <h1>!! Welcome to my website!!</h1>
